@@ -2,61 +2,65 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
   parserOptions: {
-    sourceType: 'module',
+    sourceType: "module",
     ecmaVersion: 2020,
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   settings: {
     react: {
-      pragma: 'React',
-      version: 'detect'
-    }
+      pragma: "React",
+      version: "detect",
+    },
   },
-  parser: '@typescript-eslint/parser',
+  parser: "@typescript-eslint/parser",
   extends: [
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'plugin:import/warnings',
-    'plugin:react-hooks/recommended'
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/warnings",
+    "plugin:react-hooks/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
   ],
-  plugins: ['@typescript-eslint', 'simple-import-sort'],
+  plugins: ["@typescript-eslint", "simple-import-sort", "@tanstack/query"],
   root: true,
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/camelcase': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-empty-interface': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-var-requires': 'off',
-    '@typescript-eslint/no-unused-vars': [
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/no-unused-vars": [
       1,
-      { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
     ],
-    '@typescript-eslint/no-empty-function': 'off',
-    '@typescript-eslint/consistent-type-imports': 'warn',
-    'prettier/prettier': ['warn'],
-    'simple-import-sort/imports': [
-      'warn',
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "prettier/prettier": ["warn"],
+    "simple-import-sort/imports": [
+      "warn",
       {
-        groups: [['^.*\\u0000$'], ['^\\u0000'], ['^@?\\w'], ['^'], ['^\\.']]
-      }
+        groups: [["^.*\\u0000$"], ["^\\u0000"], ["^@?\\w"], ["^"], ["^\\."]],
+      },
     ],
-    'simple-import-sort/exports': 'warn',
-    'import/no-duplicates': 'warn',
-    'import/newline-after-import': 'warn',
-    'newline-after-var': 'warn',
-    'padding-line-between-statements': [
-      'warn',
-      { blankLine: 'always', prev: '*', next: 'block' },
-      { blankLine: 'always', prev: 'block', next: '*' },
-      { blankLine: 'always', prev: '*', next: 'block-like' },
-      { blankLine: 'always', prev: 'block-like', next: '*' },
-      { blankLine: 'always', prev: '*', next: 'return' }
-    ]
-  }
-}
+    "simple-import-sort/exports": "warn",
+    "import/no-duplicates": "warn",
+    "import/newline-after-import": "warn",
+    "newline-after-var": "warn",
+    "padding-line-between-statements": [
+      "warn",
+      { blankLine: "always", prev: "*", next: "block" },
+      { blankLine: "always", prev: "block", next: "*" },
+      { blankLine: "always", prev: "*", next: "block-like" },
+      { blankLine: "always", prev: "block-like", next: "*" },
+      { blankLine: "always", prev: "*", next: "return" },
+    ],
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
+    "@tanstack/query/stable-query-client": "error",
+  },
+};
