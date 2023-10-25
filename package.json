@@ -1,6 +1,7 @@
 {
   "name": "dxu-micro-boilertemplate-fe",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "scripts": {
     "dev": "copy .env.development .env && vite",
